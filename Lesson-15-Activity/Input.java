@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.io.IOException;
 
 class Input{
 
@@ -34,6 +35,13 @@ class Input{
 
         }
         return  file;
+    }
+    public static void writeFile(String file, String data) {
+        try {
+            Files.write(Paths.get(file), data.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     /*
     public static ArrayList<Row> readCSV(String fn){
